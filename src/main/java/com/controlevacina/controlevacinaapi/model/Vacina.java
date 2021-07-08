@@ -18,9 +18,6 @@ public class Vacina {
     @Column(nullable = false)
     private String nomeDaVacina;
 
-    @Column(unique = true)
-    private  String emailDoUsuario;
-
     @Column(nullable = false)
     private  String dataAplicacaoDaVacina;
 }

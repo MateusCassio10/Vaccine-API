@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -22,6 +24,24 @@ public class UsuarioController {
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.created(URI.create("/usuario")).build();
+    }
+    @GetMapping("/consulta")
+    public List<Usuario> listaUsuario(Usuario usuario){
+        return usuarioService.findAll(usuario);
+    }
+
+    @GetMapping("/consulta/{id}")
+    public Optional<Usuario> usuarioUnico(@PathVariable(value = "id") Long id){
+        return usuarioService.findById(id);
+    }
+
+    @PutMapping("/atualiza")
+    public Usuario atualizaUsuario(@RequestBody Usuario usuario){
+        return usuarioService.save(usuario);
+    }
+    @DeleteMapping("/deleta")
+    public void deletaUsuario(@RequestBody Usuario usuario){
+        usuarioService.delete(usuario);
     }
 }
 
