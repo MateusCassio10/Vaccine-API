@@ -1,6 +1,7 @@
 package com.controlevacina.controlevacinaapi.service;
 
 import com.controlevacina.controlevacinaapi.model.Usuario;
+import com.controlevacina.controlevacinaapi.model.Vacina;
 import com.controlevacina.controlevacinaapi.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -38,4 +39,6 @@ public class UsuarioService {
     public void delete(Usuario usuario) {
         usuarioRepository.delete(usuario);
     }
+
+
 }
